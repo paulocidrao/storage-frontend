@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@theme static {
+  --ui-bg: #000;
+  --ui-primary: #fff;
+  --ui-success: #00dc82;
+  --bg-white: #fff;
+  --black: #000;
+}
