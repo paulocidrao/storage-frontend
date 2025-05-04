@@ -7,7 +7,6 @@ export default defineNuxtConfig({
     head: {
       title: "Storage",
       charset: "utf-16",
-
       htmlAttrs: { lang: "pt-br" },
     },
   },
