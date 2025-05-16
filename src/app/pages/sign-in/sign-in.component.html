@@ -1,0 +1,64 @@
+<app-auth>
+  <section class="space-y-4">
+    <h1 class="text-center text-2xl font-bold">Faça seu Login!</h1>
+    <div class="border-white opacity-40 border"></div>
+    <form
+      [formGroup]="signForm"
+      class="flex flex-col space-y-4"
+      (ngSubmit)="submit()"
+    >
+      <div class="flex flex-col space-y-1.5">
+        <label for="email">Seu Email</label>
+        <input
+          formControlName="email"
+          name="email"
+          id="email"
+          type="text"
+          placeholder="Digite seu email "
+          class="ring p-1 rounded placeholder:text-zinc-500"
+        />
+        @if (signForm.controls.email.errors?.['required'] &&
+        (signForm.controls.email.dirty || signForm.controls.email.touched)) {
+        <p class="text-red-500">O email é obrigatório</p>
+        } @if (signForm.controls.email.errors?.['email'] &&
+        (signForm.controls.email.dirty || signForm.controls.email.touched)) {
+        <p class="text-red-500">Por favor, insira um email válido</p>
+        }
+      </div>
+
+      <div class="flex flex-col space-y-1.5">
+        <label for="password">Sua Senha</label>
+        <input
+          formControlName="password"
+          name="password"
+          id="password"
+          type="password"
+          placeholder="Digite sua senha"
+          class="ring p-1 rounded placeholder:text-zinc-500"
+        />
+        @if (signForm.controls.password.errors?.['required'] &&
+        (signForm.controls.password.dirty ||
+        signForm.controls.password.touched)) {
+        <p class="text-red-500">A senha é obrigatória</p>
+        } @if (signForm.controls.password.errors?.['minlength'] &&
+        (signForm.controls.password.dirty ||
+        signForm.controls.password.touched)) {
+        <p class="text-red-500">Por favor, insira uma senha válida!</p>
+        }
+      </div>
+      <button
+        [disabled]="signForm.invalid"
+        type="submit"
+        class="p-1 font-bold bg-white hover:bg-gray-100 text-black cursor-pointer rounded disabled:cursor-not-allowed"
+      >
+        Entrar
+      </button>
+    </form>
+    <div>
+      <p class="cursor-default">
+        Ainda não tem uma conta?
+        <a to="/sign-up" class="text-blue-600 cursor-pointer">Crie a sua</a>
+      </p>
+    </div>
+  </section>
+</app-auth>
