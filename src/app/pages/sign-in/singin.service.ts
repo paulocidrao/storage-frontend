@@ -24,7 +24,6 @@ export class SignInService {
     );
   }
   navigateToHome() {
-    console.log('Chamou!');
     this.router.navigate(['home']);
   }
 }
