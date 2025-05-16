@@ -46,6 +46,9 @@
         <p class="text-red-500">Por favor, insira uma senha válida!</p>
         }
       </div>
+      @if (ErrorMessage !== "") {
+      <p class="text-red-500">{{ ErrorMessage }}</p>
+      }
       <button
         [disabled]="signForm.invalid"
         type="submit"
