@@ -1,0 +1,51 @@
+<app-auth>
+  <section class="space-y-4">
+    <h1 class="text-center font-bold text-2xl">Crie a sua conta!</h1>
+    <div class="border-white opacity-40 border"></div>
+    <form class="flex flex-col space-y-2">
+      <div class="space-y-2 flex-col flex">
+        <label for="name">Seu Nome</label>
+        <input
+          type="text"
+          placeholder="Digite seu nome"
+          class="ring p-1 rounded placeholder:text-zinc-500"
+        />
+      </div>
+      <div class="space-y-2 flex-col flex">
+        <label for="email">Seu Email</label>
+        <input
+          type="email"
+          placeholder="Digite seu email"
+          class="ring p-1 rounded placeholder:text-zinc-500"
+        />
+      </div>
+      <div class="space-y-2 flex-col flex">
+        <label for="password">Sua Senha</label>
+        <input
+          type="password"
+          placeholder="Digite sua senha"
+          class="ring p-1 rounded placeholder:text-zinc-500"
+        />
+      </div>
+      <div class="space-y-2 flex-col flex">
+        <label for="confirm_password">Confirme sua senha</label>
+        <input
+          type="password"
+          placeholder="Confirme a senha"
+          class="ring p-1 rounded placeholder:text-zinc-500"
+        />
+      </div>
+      <button
+        class="p-1 font-bold bg-white hover:bg-gray-100 text-black cursor-pointer rounded disabled:cursor-not-allowed"
+      >
+        Criar conta
+      </button>
+    </form>
+    <div>
+      <p class="cursor-default">
+        Já tem uma conta?
+        <a href="/sign-in" class="text-blue-600 cursor-pointer">Faça o login</a>
+      </p>
+    </div>
+  </section>
+</app-auth>
