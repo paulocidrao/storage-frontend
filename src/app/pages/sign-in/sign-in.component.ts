@@ -1,6 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { AuthComponent } from '../../layout/auth/auth.component';
 import {
+  FormBuilder,
+  FormGroup,
   NonNullableFormBuilder,
   ReactiveFormsModule,
   Validators,

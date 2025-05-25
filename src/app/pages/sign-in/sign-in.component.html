@@ -1,4 +1,6 @@
 <app-auth>
+  @let passcontrol = signForm.controls.password; @let emailControl
+  =signForm.controls.email;
   <section class="space-y-4">
     <h1 class="text-center text-2xl font-bold">Faça seu Login!</h1>
     <div class="border-white opacity-40 border"></div>
@@ -17,12 +19,11 @@
           placeholder="Digite seu email "
           class="ring p-1 rounded placeholder:text-zinc-500"
         />
-        @if (signForm.controls.email.errors?.['required'] &&
-        (signForm.controls.email.dirty || signForm.controls.email.touched)) {
-        <p class="text-red-500">O email é obrigatório</p>
-        } @if (signForm.controls.email.errors?.['email'] &&
-        (signForm.controls.email.dirty || signForm.controls.email.touched)) {
-        <p class="text-red-500">Por favor, insira um email válido</p>
+        @if((emailControl.dirty || emailControl.touched) &&
+        emailControl.invalid) { @if (emailControl.hasError('invalid')) {
+        <p class="text-red-500 font-bold">Por favor, insira um email válido!</p>
+        }} @if (emailControl.hasError('required')) {
+        <p class="text-red-500 font-bold">Por favor, insira seu email!</p>
         }
       </div>
 
@@ -36,14 +37,11 @@
           placeholder="Digite sua senha"
           class="ring p-1 rounded placeholder:text-zinc-500"
         />
-        @if (signForm.controls.password.errors?.['required'] &&
-        (signForm.controls.password.dirty ||
-        signForm.controls.password.touched)) {
-        <p class="text-red-500">A senha é obrigatória</p>
-        } @if (signForm.controls.password.errors?.['minlength'] &&
-        (signForm.controls.password.dirty ||
-        signForm.controls.password.touched)) {
-        <p class="text-red-500">Por favor, insira uma senha válida!</p>
+        @if(passcontrol.invalid && (passcontrol.dirty || passcontrol.touched)){
+        @if(passcontrol.hasError("required")){
+        <p class="text-red-500 font-bold">A senha é obrigatória!</p>
+        }} @if(passcontrol.hasError("minlength")){
+        <p class="text-red-500 font-bold">Digite uma senha válida!</p>
         }
       </div>
       @if (ErrorMessage !== "") {
